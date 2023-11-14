@@ -12,24 +12,25 @@
 //  ?-------------
 
 function randomOneToFive() {
-  const computerNumber = Math.floor(Math.random() * 5) + 1;
-  return computerNumber;
+  return Math.floor(Math.random() * 5) + 1;
 }
 
 //  ?-------------
 // !CODICE
 //  ?-------------
 const userInputWord = prompt("Scegli pari o dispari").toLowerCase();
+const userInputNumber = Number(
+  prompt("Inserisci un numero tra 1 e 5 compresi")
+);
+let sum = 0;
 
 if (userInputWord === "pari" || userInputWord === "dispari") {
-  const userInputNumber = Number(
-    prompt("Inserisci un numero tra 1 e 5 compresi")
-  );
   if (userInputNumber >= 1 && userInputNumber <= 5) {
+    sum = userInputNumber + randomOneToFive();
+    console.log(sum);
   } else {
-    alert("Il valore inserito non è corretto");
-    console.log(pariODispari);
+    alert("Il numero inserito non è corretto, riprova.");
   }
 } else {
-  alert("La parola inserita non è correta");
+  alert("La parola inserita non è corretta, riprova.");
 }
