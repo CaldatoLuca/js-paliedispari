@@ -54,3 +54,4 @@ const userInput = prompt(
 palindroma(userInput);
 
 //!TODO  cambiare il ciclo for col break e rendere il codice funzionante anche per le frasi (lo spazio rovina le condizioni)
+// nella creazione degli array non pushare se il carattere è vuoto o apostrofo?
