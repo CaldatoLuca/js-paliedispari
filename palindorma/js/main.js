@@ -16,7 +16,6 @@ function palindroma(parola) {
   const word = [];
   const reverseWord = [];
   let resoult = true;
-  let counter = 0;
 
   for (let i = 0; i < parola.length; i++) {
     if (parola[i] == " " || parola[i] == "'") {
@@ -63,4 +62,4 @@ const userInput = prompt(
 
 palindroma(userInput);
 
-//!TODO  cambiare il ciclo for col break
+//!TODO non funziona con !,? e caratteri speciali, sostituire ciclo for col while
