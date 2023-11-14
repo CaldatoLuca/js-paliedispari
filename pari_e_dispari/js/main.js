@@ -40,7 +40,11 @@ if (userInputWord === "pari" || userInputWord === "dispari") {
     sum = userInputNumber + randomOneToFive();
     console.log(sum);
     check = pariODispari();
-    console.log(check);
+    if (userInputWord === check) {
+      alert(`Hai indovinato, la somma è: ${sum}`);
+    } else {
+      alert(`Non hai indovinato, la somma è: ${sum}`);
+    }
   } else {
     alert("Il numero inserito non è corretto, riprova.");
   }
