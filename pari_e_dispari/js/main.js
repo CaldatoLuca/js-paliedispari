@@ -17,9 +17,9 @@ function randomOneToFive() {
 }
 
 // *Funzione che controlla se la somma è pari o dispari
-function pariODispari() {
+function pariODispari(number) {
   let oddOrEven = "";
-  if (sum % 2 === 0) {
+  if (number % 2 === 0) {
     oddOrEven = "pari";
   } else {
     oddOrEven = "dispari";
@@ -44,8 +44,8 @@ if (userInputWord === "pari" || userInputWord === "dispari") {
   if (userInputNumber >= 1 && userInputNumber <= 5 && !isNaN(userInputNumber)) {
     sum = userInputNumber + randomOneToFive(); //* somma dei due numeri, richiamo la funzione
     console.log(sum);
-    //* controllo se la stringa utente è uguale a quella della funzione pari/dispari
-    if (userInputWord === pariODispari()) {
+    //* controllo se la stringa utente è uguale a quella della funzione pari/dispari (sostituisco number con sum nella funzione/riutilizzabile)
+    if (userInputWord === pariODispari(sum)) {
       alert(`Hai indovinato, la somma è: ${sum}`);
     } else {
       alert(`Non hai indovinato, la somma è: ${sum}`);
