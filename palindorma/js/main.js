@@ -15,19 +15,28 @@
 function palindroma(parola) {
   const word = [];
   const reverseWord = [];
-  let resoult = false;
+  let resoult = true;
+  let counter = 0;
 
-  for (let i = 0; i < userInput.length; i++) {
-    word.push(userInput[i]);
+  for (let i = 0; i < parola.length; i++) {
+    if (parola[i] == " " || parola[i] == "'") {
+    } else {
+      word.push(parola[i].normalize("NFD").replace(/[\u0300-\u036f]/g, ""));
+    }
   }
-  for (let i = userInput.length - 1; i >= 0; i--) {
-    reverseWord.push(userInput[i]);
+  for (let i = parola.length - 1; i >= 0; i--) {
+    if (parola[i] == " " || parola[i] == "'") {
+    } else {
+      reverseWord.push(
+        parola[i].normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      );
+    }
   }
 
   console.log(word);
   console.log(reverseWord);
 
-  for (let i = 0; i < userInput.length; i++) {
+  for (let i = 0; i < parola.length; i++) {
     if (word[i] === reverseWord[i]) {
       resoult = true;
     } else {
@@ -35,10 +44,11 @@ function palindroma(parola) {
       break;
     }
   }
+
   if (resoult === true) {
-    console.log("La parola è palindroma");
+    console.log("La parola o frase è palindroma");
   } else if (resoult === false) {
-    console.log("La parola non è palindroma");
+    console.log("La parola o frase non è palindroma");
   }
   return resoult;
 }
@@ -49,9 +59,8 @@ function palindroma(parola) {
 
 const userInput = prompt(
   "Inserisci una parola o una frase per scoprire se è palindroma"
-);
+).toLowerCase();
 
 palindroma(userInput);
 
-//!TODO  cambiare il ciclo for col break e rendere il codice funzionante anche per le frasi (lo spazio rovina le condizioni)
-// nella creazione degli array non pushare se il carattere è vuoto o apostrofo?
+//!TODO  cambiare il ciclo for col break
