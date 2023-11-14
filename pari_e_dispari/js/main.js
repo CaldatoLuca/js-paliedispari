@@ -7,7 +7,20 @@
 
 "use strict";
 
+//  ?-------------
+// !FUNZIONI
+//  ?-------------
+
+function randomOneToFive() {
+  const computerNumber = Math.floor(Math.random() * 5) + 1;
+  return computerNumber;
+}
+
+//  ?-------------
+// !CODICE
+//  ?-------------
 const userInputWord = prompt("Scegli pari o dispari").toLowerCase();
+
 if (userInputWord === "pari" || userInputWord === "dispari") {
   const userInputNumber = Number(
     prompt("Inserisci un numero tra 1 e 5 compresi")
@@ -15,6 +28,7 @@ if (userInputWord === "pari" || userInputWord === "dispari") {
   if (userInputNumber >= 1 && userInputNumber <= 5) {
   } else {
     alert("Il valore inserito non è corretto");
+    console.log(pariODispari);
   }
 } else {
   alert("La parola inserita non è correta");
