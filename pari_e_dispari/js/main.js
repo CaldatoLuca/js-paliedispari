@@ -11,10 +11,12 @@
 // !FUNZIONI
 //  ?-------------
 
+// *Funzione che genera un numero random tra 1 e 5
 function randomOneToFive() {
   return Math.floor(Math.random() * 5) + 1;
 }
 
+// *Funzione che controlla se la somma è pari o dispari
 function pariODispari() {
   let oddOrEven = "";
   if (sum % 2 === 0) {
@@ -28,19 +30,22 @@ function pariODispari() {
 //  ?-------------
 // !CODICE
 //  ?-------------
+
+//* variabili
 const userInputWord = prompt("Scegli pari o dispari").toLowerCase();
 const userInputNumber = Number(
   prompt("Inserisci un numero tra 1 e 5 compresi")
 );
 let sum = 0;
-let check = "";
 
+//* condizione sulla parola inserita dall' utente
 if (userInputWord === "pari" || userInputWord === "dispari") {
-  if (userInputNumber >= 1 && userInputNumber <= 5) {
-    sum = userInputNumber + randomOneToFive();
+  //* condizone sul numero inserito dall' utente
+  if (userInputNumber >= 1 && userInputNumber <= 5 && !isNaN(userInputNumber)) {
+    sum = userInputNumber + randomOneToFive(); //* somma dei due numeri, richiamo la funzione
     console.log(sum);
-    check = pariODispari();
-    if (userInputWord === check) {
+    //* controllo se la stringa utente è uguale a quella della funzione pari/dispari
+    if (userInputWord === pariODispari()) {
       alert(`Hai indovinato, la somma è: ${sum}`);
     } else {
       alert(`Non hai indovinato, la somma è: ${sum}`);
