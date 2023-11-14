@@ -15,6 +15,16 @@ function randomOneToFive() {
   return Math.floor(Math.random() * 5) + 1;
 }
 
+function pariODispari() {
+  let oddOrEven = "";
+  if (sum % 2 === 0) {
+    oddOrEven = "pari";
+  } else {
+    oddOrEven = "dispari";
+  }
+  return oddOrEven;
+}
+
 //  ?-------------
 // !CODICE
 //  ?-------------
@@ -23,11 +33,14 @@ const userInputNumber = Number(
   prompt("Inserisci un numero tra 1 e 5 compresi")
 );
 let sum = 0;
+let check = "";
 
 if (userInputWord === "pari" || userInputWord === "dispari") {
   if (userInputNumber >= 1 && userInputNumber <= 5) {
     sum = userInputNumber + randomOneToFive();
     console.log(sum);
+    check = pariODispari();
+    console.log(check);
   } else {
     alert("Il numero inserito non è corretto, riprova.");
   }
