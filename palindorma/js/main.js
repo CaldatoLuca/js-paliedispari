@@ -1,28 +1,21 @@
-// 1. Fare prompt per richiedere la parola all' utente (verificare che sia una parola?)
-// 2. Creare una funzione che avrà come risultato true o false in base alla parola inserita (NB ricorda return)
-// 3. Risolzione parola palindroma
-//    - parola letta al contrario non cambia
-//    - trattare la stringa come array
-//    - se la lettera in posizione i è uguale sia leggendola da sx a dx che viceversa è palindroma
-//    - confronto con ciclo le varie lettere nelle due letture (se corrispondo è palindroma)
-//    - non dovrebbe essere necessario finire la lettura a metà parola (se si riesce meglio, evito calcoli inutili)
-
 "use strict";
 //  ?-------------
 // !FUNZIONI
 //  ?-------------
-
+//* funzione che controlla se parola è palindroma
 function palindroma(parola) {
-  const word = [];
-  const reverseWord = [];
+  const word = []; //*array normale
+  const reverseWord = []; //*array reverse
   let resoult = true;
 
+  //*creazione array normale
   for (let i = 0; i < parola.length; i++) {
     if (parola[i] == " " || parola[i] == "'") {
     } else {
       word.push(parola[i].normalize("NFD").replace(/[\u0300-\u036f]/g, ""));
     }
   }
+  //*creazione array reverse
   for (let i = parola.length - 1; i >= 0; i--) {
     if (parola[i] == " " || parola[i] == "'") {
     } else {
@@ -35,6 +28,7 @@ function palindroma(parola) {
   console.log(word);
   console.log(reverseWord);
 
+  //*controllo se i caratteri dei deue array siano uguali in ogni posizione
   for (let i = 0; i < parola.length; i++) {
     if (word[i] === reverseWord[i]) {
       resoult = true;
@@ -44,6 +38,7 @@ function palindroma(parola) {
     }
   }
 
+  //* a seconda del risulatato di resoult stampo il messaggio corretto
   if (resoult === true) {
     console.log("La parola o frase è palindroma");
   } else if (resoult === false) {
@@ -56,10 +51,12 @@ function palindroma(parola) {
 // !CODICE
 //  ?-------------
 
+//*variabili
 const userInput = prompt(
   "Inserisci una parola o una frase per scoprire se è palindroma"
 ).toLowerCase();
 
+//*richiamo la funzion e la uso con userInput
 palindroma(userInput);
 
 //!TODO non funziona con !,? e caratteri speciali, sostituire ciclo for col while
