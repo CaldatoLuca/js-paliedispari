@@ -56,3 +56,67 @@ if (userInputWord === "pari" || userInputWord === "dispari") {
 } else {
   alert("La parola inserita non è corretta, riprova.");
 }
+
+/* //!correzzione 
+?se uso maggiore e minore e l' utente non mette un numero non sarà mai maggiore di 1 quindi non serve controllo se mette utente
+
+//  ?-------------
+ !FUNZIONI
+//  ?-------------
+function gestisciSceltaUtente (testo){
+  let valori = ['pari', 'dispari'];
+
+  let scelta = "";
+
+  do{
+     scelta = prompt(testo).toLowerCase();
+  }while(!valori.includes(scelta));
+
+  return scelta;
+}
+
+function gestisciNumeroUtente (testo, min, max){
+  let scelta = "";
+
+  do{
+     scelta = +prompt(testo);
+  }while(scelta < min || scelta > max);
+
+  return scelta;
+}
+
+function numeroRandom(min, max){
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+  
+}
+
+function pariODispari(num) {
+  return num % 2 === 0; restituisce true o false
+}
+
+function vincitore(userInputWord, sommaPari){
+   if(userInputWord === 'pari' && pariODispari) return true;
+   if(userInputWord === 'dispari' && !pariODispari) return true;
+
+   return false;  
+
+}
+
+//  ?-------------
+ !CODICE
+//  ?-------------
+const userInputWord = gestisciSceltaUtente('Inserisci pari o dispari');
+const userInputNumber = gestisciNumeroUtente('Inserisci un numero tra 1 e 5', 1, 5);
+const computerNumber = numeroRandom(1, 5);
+const somma = userInputNumber + computerNumber;
+const sommaPari = pariODispari(somma);
+const winner = vincitore(userInputWord, sommaPari);
+
+if(winner){
+   console.log('vince utente');
+}else{
+   console.log('vince computer');
+
+}
+
+*/
